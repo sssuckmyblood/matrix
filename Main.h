@@ -37,48 +37,8 @@ namespace matrix {
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^ exit;
 	private: System::Windows::Forms::ToolStripMenuItem^ about;
-	protected:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private: System::ComponentModel::BackgroundWorker^ rand_mas;
 	private: System::ComponentModel::BackgroundWorker^ color_worker;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private: System::Windows::Forms::TabControl^ tab_view;
 	private: System::Windows::Forms::TabPage^ tabPage1;
 	private: System::Windows::Forms::TabPage^ tabPage2;
