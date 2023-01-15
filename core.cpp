@@ -1,4 +1,5 @@
-#include "function.h" // Подключаем прототипы функций
+#include "analyze.h" // Подключаем прототипы функций
+#include "matrix.h"  // Подключаем класс матриц
 #include "Main.h"
 int** mas = nullptr; 
 int saddle_i = 0;
@@ -34,11 +35,7 @@ System::Void matrix::Main::OnFormClosing(System::Object^ sender, System::Windows
 }
 
 
-System::Void matrix::Main::about_Click(System::Object^ sender, System::EventArgs^ e)
-{
-	MessageBox::Show("Студент группы БИА21-02 Конопченко Леонид","Автор");
-	return System::Void();
-}
+
 
 
 System::Void matrix::Main::create_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -226,7 +223,12 @@ System::Void matrix::Main::mas_data_Show() {
 }
 
 
-
+System::Void matrix::Main::tab_view_Selecting(System::Object^ sender, System::Windows::Forms::TabControlCancelEventArgs^ e) {
+	if(tab_view->SelectedIndex == 0)
+		this->ClientSize = System::Drawing::Size(1457, 606);
+	else
+		this->ClientSize = System::Drawing::Size(770, 470);
+}
 
 
 /*
