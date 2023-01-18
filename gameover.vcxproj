@@ -132,14 +132,14 @@
     <ClCompile Include="core.cpp" />
     <ClCompile Include="analyze.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="matrix.cpp" />
+    <ClCompile Include="matrix_class.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="analyze.h" />
     <ClInclude Include="Main.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="matrix.h" />
+    <ClInclude Include="matrix_class.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

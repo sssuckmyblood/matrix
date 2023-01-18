@@ -1,5 +1,5 @@
 #pragma once
-
+#include "matrix_class.h" // Подключаем класс матриц
 namespace matrix {
 
 	using namespace System;
@@ -77,19 +77,27 @@ namespace matrix {
 	private: System::Windows::Forms::Button^ create_A;
 	private: System::Windows::Forms::NumericUpDown^ n_A;
 	private: System::Windows::Forms::NumericUpDown^ m_A;
-	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::Windows::Forms::DataGridView^ A_matr;
+
+
 	private: System::Windows::Forms::GroupBox^ groupBox8;
+	private: System::Windows::Forms::DataGridView^ C_matr;
 
 
 
 
-	private: System::Windows::Forms::DataGridView^ dataGridView3;
+
+
 	private: System::Windows::Forms::GroupBox^ groupBox7;
 	private: System::Windows::Forms::Button^ gen_B;
 	private: System::Windows::Forms::Button^ create_B;
 	private: System::Windows::Forms::NumericUpDown^ n_B;
 	private: System::Windows::Forms::NumericUpDown^ m_B;
-	private: System::Windows::Forms::DataGridView^ dataGridView2;
+	private: System::Windows::Forms::DataGridView^ B_matr;
+	private: System::Windows::Forms::Button^ mul;
+	private: System::Windows::Forms::Label^ label12;
+
+
 
 
 
@@ -115,7 +123,21 @@ namespace matrix {
 			this->color_worker = (gcnew System::ComponentModel::BackgroundWorker());
 			this->tab_view = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->mul = (gcnew System::Windows::Forms::Button());
+			this->groupBox8 = (gcnew System::Windows::Forms::GroupBox());
+			this->C_matr = (gcnew System::Windows::Forms::DataGridView());
+			this->groupBox7 = (gcnew System::Windows::Forms::GroupBox());
+			this->gen_B = (gcnew System::Windows::Forms::Button());
+			this->create_B = (gcnew System::Windows::Forms::Button());
+			this->n_B = (gcnew System::Windows::Forms::NumericUpDown());
+			this->m_B = (gcnew System::Windows::Forms::NumericUpDown());
+			this->B_matr = (gcnew System::Windows::Forms::DataGridView());
 			this->groupBox6 = (gcnew System::Windows::Forms::GroupBox());
+			this->gen_A = (gcnew System::Windows::Forms::Button());
+			this->create_A = (gcnew System::Windows::Forms::Button());
+			this->n_A = (gcnew System::Windows::Forms::NumericUpDown());
+			this->m_A = (gcnew System::Windows::Forms::NumericUpDown());
+			this->A_matr = (gcnew System::Windows::Forms::DataGridView());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
@@ -146,23 +168,20 @@ namespace matrix {
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->mas_data = (gcnew System::Windows::Forms::DataGridView());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->m_A = (gcnew System::Windows::Forms::NumericUpDown());
-			this->n_A = (gcnew System::Windows::Forms::NumericUpDown());
-			this->create_A = (gcnew System::Windows::Forms::Button());
-			this->gen_A = (gcnew System::Windows::Forms::Button());
-			this->groupBox7 = (gcnew System::Windows::Forms::GroupBox());
-			this->gen_B = (gcnew System::Windows::Forms::Button());
-			this->create_B = (gcnew System::Windows::Forms::Button());
-			this->n_B = (gcnew System::Windows::Forms::NumericUpDown());
-			this->m_B = (gcnew System::Windows::Forms::NumericUpDown());
-			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
-			this->groupBox8 = (gcnew System::Windows::Forms::GroupBox());
-			this->dataGridView3 = (gcnew System::Windows::Forms::DataGridView());
+			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->menuStrip1->SuspendLayout();
 			this->tab_view->SuspendLayout();
 			this->tabPage1->SuspendLayout();
+			this->groupBox8->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->C_matr))->BeginInit();
+			this->groupBox7->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->n_B))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->m_B))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->B_matr))->BeginInit();
 			this->groupBox6->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->n_A))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->m_A))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->A_matr))->BeginInit();
 			this->tabPage2->SuspendLayout();
 			this->groupBox3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->random_start))->BeginInit();
@@ -178,15 +197,6 @@ namespace matrix {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numeric_M))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mas_data))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->m_A))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->n_A))->BeginInit();
-			this->groupBox7->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->n_B))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->m_B))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
-			this->groupBox8->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView3))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
@@ -227,6 +237,8 @@ namespace matrix {
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->label12);
+			this->tabPage1->Controls->Add(this->mul);
 			this->tabPage1->Controls->Add(this->groupBox8);
 			this->tabPage1->Controls->Add(this->groupBox7);
 			this->tabPage1->Controls->Add(this->groupBox6);
@@ -238,19 +250,170 @@ namespace matrix {
 			this->tabPage1->Text = L"Калькулятор";
 			this->tabPage1->UseVisualStyleBackColor = true;
 			// 
+			// mul
+			// 
+			this->mul->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->mul->Location = System::Drawing::Point(542, 188);
+			this->mul->Name = L"mul";
+			this->mul->Size = System::Drawing::Size(28, 23);
+			this->mul->TabIndex = 3;
+			this->mul->Text = L"*";
+			this->mul->UseVisualStyleBackColor = true;
+			this->mul->Click += gcnew System::EventHandler(this, &Main::mul_Click);
+			// 
+			// groupBox8
+			// 
+			this->groupBox8->Controls->Add(this->C_matr);
+			this->groupBox8->Location = System::Drawing::Point(1143, 18);
+			this->groupBox8->Name = L"groupBox8";
+			this->groupBox8->Size = System::Drawing::Size(527, 433);
+			this->groupBox8->TabIndex = 2;
+			this->groupBox8->TabStop = false;
+			this->groupBox8->Text = L"Матрица C";
+			// 
+			// C_matr
+			// 
+			this->C_matr->AllowUserToAddRows = false;
+			this->C_matr->AllowUserToDeleteRows = false;
+			this->C_matr->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->C_matr->ColumnHeadersVisible = false;
+			this->C_matr->Location = System::Drawing::Point(7, 22);
+			this->C_matr->Name = L"C_matr";
+			this->C_matr->ReadOnly = true;
+			this->C_matr->RowHeadersVisible = false;
+			this->C_matr->Size = System::Drawing::Size(513, 327);
+			this->C_matr->TabIndex = 0;
+			// 
+			// groupBox7
+			// 
+			this->groupBox7->Controls->Add(this->gen_B);
+			this->groupBox7->Controls->Add(this->create_B);
+			this->groupBox7->Controls->Add(this->n_B);
+			this->groupBox7->Controls->Add(this->m_B);
+			this->groupBox7->Controls->Add(this->B_matr);
+			this->groupBox7->Location = System::Drawing::Point(577, 18);
+			this->groupBox7->Name = L"groupBox7";
+			this->groupBox7->Size = System::Drawing::Size(527, 433);
+			this->groupBox7->TabIndex = 1;
+			this->groupBox7->TabStop = false;
+			this->groupBox7->Text = L"Матрица B";
+			// 
+			// gen_B
+			// 
+			this->gen_B->Location = System::Drawing::Point(26, 383);
+			this->gen_B->Name = L"gen_B";
+			this->gen_B->Size = System::Drawing::Size(126, 28);
+			this->gen_B->TabIndex = 4;
+			this->gen_B->Text = L"Сгенерировать";
+			this->gen_B->UseVisualStyleBackColor = true;
+			this->gen_B->Click += gcnew System::EventHandler(this, &Main::gen_B_Click);
+			// 
+			// create_B
+			// 
+			this->create_B->Location = System::Drawing::Point(364, 383);
+			this->create_B->Name = L"create_B";
+			this->create_B->Size = System::Drawing::Size(126, 28);
+			this->create_B->TabIndex = 3;
+			this->create_B->Text = L"Создать";
+			this->create_B->UseVisualStyleBackColor = true;
+			this->create_B->Click += gcnew System::EventHandler(this, &Main::create_B_Click);
+			// 
+			// n_B
+			// 
+			this->n_B->Location = System::Drawing::Point(190, 357);
+			this->n_B->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->n_B->Name = L"n_B";
+			this->n_B->Size = System::Drawing::Size(69, 21);
+			this->n_B->TabIndex = 2;
+			this->n_B->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			// 
+			// m_B
+			// 
+			this->m_B->Location = System::Drawing::Point(266, 357);
+			this->m_B->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->m_B->Name = L"m_B";
+			this->m_B->Size = System::Drawing::Size(69, 21);
+			this->m_B->TabIndex = 1;
+			this->m_B->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			// 
+			// B_matr
+			// 
+			this->B_matr->AllowUserToAddRows = false;
+			this->B_matr->AllowUserToDeleteRows = false;
+			this->B_matr->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->B_matr->ColumnHeadersVisible = false;
+			this->B_matr->Location = System::Drawing::Point(7, 22);
+			this->B_matr->Name = L"B_matr";
+			this->B_matr->ReadOnly = true;
+			this->B_matr->RowHeadersVisible = false;
+			this->B_matr->Size = System::Drawing::Size(513, 327);
+			this->B_matr->TabIndex = 0;
+			// 
 			// groupBox6
 			// 
 			this->groupBox6->Controls->Add(this->gen_A);
 			this->groupBox6->Controls->Add(this->create_A);
 			this->groupBox6->Controls->Add(this->n_A);
 			this->groupBox6->Controls->Add(this->m_A);
-			this->groupBox6->Controls->Add(this->dataGridView1);
+			this->groupBox6->Controls->Add(this->A_matr);
 			this->groupBox6->Location = System::Drawing::Point(9, 18);
 			this->groupBox6->Name = L"groupBox6";
 			this->groupBox6->Size = System::Drawing::Size(527, 433);
 			this->groupBox6->TabIndex = 0;
 			this->groupBox6->TabStop = false;
 			this->groupBox6->Text = L"Матрица A";
+			// 
+			// gen_A
+			// 
+			this->gen_A->Location = System::Drawing::Point(26, 383);
+			this->gen_A->Name = L"gen_A";
+			this->gen_A->Size = System::Drawing::Size(126, 28);
+			this->gen_A->TabIndex = 4;
+			this->gen_A->Text = L"Сгенерировать";
+			this->gen_A->UseVisualStyleBackColor = true;
+			this->gen_A->Click += gcnew System::EventHandler(this, &Main::gen_A_Click);
+			// 
+			// create_A
+			// 
+			this->create_A->Location = System::Drawing::Point(364, 383);
+			this->create_A->Name = L"create_A";
+			this->create_A->Size = System::Drawing::Size(126, 28);
+			this->create_A->TabIndex = 3;
+			this->create_A->Text = L"Создать";
+			this->create_A->UseVisualStyleBackColor = true;
+			this->create_A->Click += gcnew System::EventHandler(this, &Main::create_A_Click);
+			// 
+			// n_A
+			// 
+			this->n_A->Location = System::Drawing::Point(190, 357);
+			this->n_A->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->n_A->Name = L"n_A";
+			this->n_A->Size = System::Drawing::Size(69, 21);
+			this->n_A->TabIndex = 2;
+			this->n_A->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			// 
+			// m_A
+			// 
+			this->m_A->Location = System::Drawing::Point(266, 357);
+			this->m_A->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->m_A->Name = L"m_A";
+			this->m_A->Size = System::Drawing::Size(69, 21);
+			this->m_A->TabIndex = 1;
+			this->m_A->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			// 
+			// A_matr
+			// 
+			this->A_matr->AllowUserToAddRows = false;
+			this->A_matr->AllowUserToDeleteRows = false;
+			this->A_matr->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->A_matr->ColumnHeadersVisible = false;
+			this->A_matr->Location = System::Drawing::Point(7, 22);
+			this->A_matr->Name = L"A_matr";
+			this->A_matr->ReadOnly = true;
+			this->A_matr->RowHeadersVisible = false;
+			this->A_matr->Size = System::Drawing::Size(513, 327);
+			this->A_matr->TabIndex = 0;
 			// 
 			// tabPage2
 			// 
@@ -259,10 +422,10 @@ namespace matrix {
 			this->tabPage2->Controls->Add(this->groupBox4);
 			this->tabPage2->Controls->Add(this->groupBox2);
 			this->tabPage2->Controls->Add(this->groupBox1);
-			this->tabPage2->Location = System::Drawing::Point(4, 22);
+			this->tabPage2->Location = System::Drawing::Point(4, 24);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(1673, 595);
+			this->tabPage2->Size = System::Drawing::Size(1673, 593);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Анализ";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -609,126 +772,16 @@ namespace matrix {
 			this->mas_data->Size = System::Drawing::Size(360, 316);
 			this->mas_data->TabIndex = 2;
 			// 
-			// dataGridView1
+			// label12
 			// 
-			this->dataGridView1->AllowUserToAddRows = false;
-			this->dataGridView1->AllowUserToDeleteRows = false;
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(7, 22);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->ReadOnly = true;
-			this->dataGridView1->Size = System::Drawing::Size(513, 327);
-			this->dataGridView1->TabIndex = 0;
-			// 
-			// m_A
-			// 
-			this->m_A->Location = System::Drawing::Point(266, 357);
-			this->m_A->Name = L"m_A";
-			this->m_A->Size = System::Drawing::Size(69, 21);
-			this->m_A->TabIndex = 1;
-			// 
-			// n_A
-			// 
-			this->n_A->Location = System::Drawing::Point(190, 357);
-			this->n_A->Name = L"n_A";
-			this->n_A->Size = System::Drawing::Size(69, 21);
-			this->n_A->TabIndex = 2;
-			// 
-			// create_A
-			// 
-			this->create_A->Location = System::Drawing::Point(364, 383);
-			this->create_A->Name = L"create_A";
-			this->create_A->Size = System::Drawing::Size(126, 28);
-			this->create_A->TabIndex = 3;
-			this->create_A->Text = L"Создать";
-			this->create_A->UseVisualStyleBackColor = true;
-			// 
-			// gen_A
-			// 
-			this->gen_A->Location = System::Drawing::Point(26, 383);
-			this->gen_A->Name = L"gen_A";
-			this->gen_A->Size = System::Drawing::Size(126, 28);
-			this->gen_A->TabIndex = 4;
-			this->gen_A->Text = L"Сгенерировать";
-			this->gen_A->UseVisualStyleBackColor = true;
-			// 
-			// groupBox7
-			// 
-			this->groupBox7->Controls->Add(this->gen_B);
-			this->groupBox7->Controls->Add(this->create_B);
-			this->groupBox7->Controls->Add(this->n_B);
-			this->groupBox7->Controls->Add(this->m_B);
-			this->groupBox7->Controls->Add(this->dataGridView2);
-			this->groupBox7->Location = System::Drawing::Point(577, 18);
-			this->groupBox7->Name = L"groupBox7";
-			this->groupBox7->Size = System::Drawing::Size(527, 433);
-			this->groupBox7->TabIndex = 1;
-			this->groupBox7->TabStop = false;
-			this->groupBox7->Text = L"Матрица B";
-			// 
-			// gen_B
-			// 
-			this->gen_B->Location = System::Drawing::Point(26, 383);
-			this->gen_B->Name = L"gen_B";
-			this->gen_B->Size = System::Drawing::Size(126, 28);
-			this->gen_B->TabIndex = 4;
-			this->gen_B->Text = L"Сгенерировать";
-			this->gen_B->UseVisualStyleBackColor = true;
-			// 
-			// create_B
-			// 
-			this->create_B->Location = System::Drawing::Point(364, 383);
-			this->create_B->Name = L"create_B";
-			this->create_B->Size = System::Drawing::Size(126, 28);
-			this->create_B->TabIndex = 3;
-			this->create_B->Text = L"Создать";
-			this->create_B->UseVisualStyleBackColor = true;
-			// 
-			// n_B
-			// 
-			this->n_B->Location = System::Drawing::Point(190, 357);
-			this->n_B->Name = L"n_B";
-			this->n_B->Size = System::Drawing::Size(69, 21);
-			this->n_B->TabIndex = 2;
-			// 
-			// m_B
-			// 
-			this->m_B->Location = System::Drawing::Point(266, 357);
-			this->m_B->Name = L"m_B";
-			this->m_B->Size = System::Drawing::Size(69, 21);
-			this->m_B->TabIndex = 1;
-			// 
-			// dataGridView2
-			// 
-			this->dataGridView2->AllowUserToAddRows = false;
-			this->dataGridView2->AllowUserToDeleteRows = false;
-			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView2->Location = System::Drawing::Point(7, 22);
-			this->dataGridView2->Name = L"dataGridView2";
-			this->dataGridView2->ReadOnly = true;
-			this->dataGridView2->Size = System::Drawing::Size(513, 327);
-			this->dataGridView2->TabIndex = 0;
-			// 
-			// groupBox8
-			// 
-			this->groupBox8->Controls->Add(this->dataGridView3);
-			this->groupBox8->Location = System::Drawing::Point(1143, 18);
-			this->groupBox8->Name = L"groupBox8";
-			this->groupBox8->Size = System::Drawing::Size(527, 433);
-			this->groupBox8->TabIndex = 2;
-			this->groupBox8->TabStop = false;
-			this->groupBox8->Text = L"Матрица C";
-			// 
-			// dataGridView3
-			// 
-			this->dataGridView3->AllowUserToAddRows = false;
-			this->dataGridView3->AllowUserToDeleteRows = false;
-			this->dataGridView3->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView3->Location = System::Drawing::Point(7, 22);
-			this->dataGridView3->Name = L"dataGridView3";
-			this->dataGridView3->ReadOnly = true;
-			this->dataGridView3->Size = System::Drawing::Size(513, 327);
-			this->dataGridView3->TabIndex = 0;
+			this->label12->AutoSize = true;
+			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label12->Location = System::Drawing::Point(1110, 188);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(28, 29);
+			this->label12->TabIndex = 4;
+			this->label12->Text = L"=";
 			// 
 			// Main
 			// 
@@ -746,12 +799,21 @@ namespace matrix {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Матрицы";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &Main::OnFormClosing);
-			this->Load += gcnew System::EventHandler(this, &Main::Main_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->tab_view->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
+			this->tabPage1->PerformLayout();
+			this->groupBox8->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->C_matr))->EndInit();
+			this->groupBox7->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->n_B))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->m_B))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->B_matr))->EndInit();
 			this->groupBox6->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->n_A))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->m_A))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->A_matr))->EndInit();
 			this->tabPage2->ResumeLayout(false);
 			this->groupBox3->ResumeLayout(false);
 			this->groupBox3->PerformLayout();
@@ -771,15 +833,6 @@ namespace matrix {
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mas_data))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->m_A))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->n_A))->EndInit();
-			this->groupBox7->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->n_B))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->m_B))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->EndInit();
-			this->groupBox8->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView3))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -806,11 +859,15 @@ private: System::Void sort_Click(System::Object^ sender, System::EventArgs^ e);
 
 private: System::Void color_worker_DoWork(System::Object^ sender, System::ComponentModel::DoWorkEventArgs^ e);
 
-private: System::Void Main_Load(System::Object^ sender, System::EventArgs^ e) {
-}
 
 
 private: System::Void tab_view_Selecting(System::Object^ sender, System::Windows::Forms::TabControlCancelEventArgs^ e);
 
+private: System::Void create_A_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void create_B_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void gen_A_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void gen_B_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void matr_data_Show(matr& data, System::Windows::Forms::DataGridView^ table);
+private: System::Void mul_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

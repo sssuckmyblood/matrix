@@ -1,5 +1,4 @@
-#include "analyze.h" // Подключаем прототипы функций
-#include "matrix.h"  // Подключаем класс матриц
+#include "analyze.h" // Подключаем прототипы функций   
 #include "Main.h"
 int** mas = nullptr; 
 int saddle_i = 0;
@@ -13,6 +12,8 @@ int j_1 = 0;
 int i_2 = 0;
 int j_2 = 0;
 int len = 0;
+matr A;
+matr B;
 
 
 System::Void matrix::Main::exit_Click(System::Object^ sender, System::EventArgs^ e)
@@ -33,9 +34,6 @@ System::Void matrix::Main::OnFormClosing(System::Object^ sender, System::Windows
 
 	return System::Void();
 }
-
-
-
 
 
 System::Void matrix::Main::create_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -230,6 +228,49 @@ System::Void matrix::Main::tab_view_Selecting(System::Object^ sender, System::Wi
 		this->ClientSize = System::Drawing::Size(770, 470);
 }
 
+System::Void matrix::Main::create_A_Click(System::Object^ sender, System::EventArgs^ e) {
+	A.set_size(Convert::ToInt32(n_A->Value), Convert::ToInt32(m_A->Value));
+	matr_data_Show(A, A_matr);
+}
+
+System::Void matrix::Main::create_B_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	B.set_size(Convert::ToInt32(n_B->Value), Convert::ToInt32(m_B->Value));
+	matr_data_Show(B, B_matr);
+	
+}
+
+System::Void matrix::Main::gen_A_Click(System::Object^ sender, System::EventArgs^ e) {
+	A.gen_matr();
+	matr_data_Show(A, A_matr);
+}
+
+System::Void matrix::Main::gen_B_Click(System::Object^ sender, System::EventArgs^ e) {
+	B.gen_matr();
+	matr_data_Show(B, B_matr);
+}
+
+
+System::Void matrix::Main::mul_Click(System::Object^ sender, System::EventArgs^ e) {
+	matr C = C.matrix_multiplicat(A, B);
+	matr_data_Show(C, C_matr);
+}
+
+System::Void matrix::Main::matr_data_Show(matr& data, System::Windows::Forms::DataGridView^ table) {
+	table->RowCount = data.get_n();
+	table->ColumnCount = data.get_m();
+	for (int i = 0; i < data.get_n(); i++) {
+
+		for (int j = 0; j < data.get_m(); j++) {
+			table->Rows[i]->HeaderCell->Value = Convert::ToString(i + 1);
+			table->Columns[j]->HeaderCell->Value = Convert::ToString(j + 1);
+			table->Rows[i]->Cells[j]->Value = data.get_matr()[i][j];
+		}
+	}
+	table->AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode::AutoSizeToAllHeaders);
+	table->AutoResizeColumns();
+	table->ClearSelection();
+}
 
 /*
 int main() {
