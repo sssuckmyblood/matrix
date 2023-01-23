@@ -1,3 +1,9 @@
+//////////////////////////////////////////////////////////////////////////////////
+//																				//																 										//				 					
+//				Описание класса матриц											//
+// 																				//
+//////////////////////////////////////////////////////////////////////////////////
+
 #include <cstdlib> 
 #include <ctime>
 #include <memory>
@@ -14,13 +20,16 @@ public:
 	matr(const matr&);
 	~matr();
 
-	matr matrix_multiplicat(matr&, matr&);
-	double** get_matr() { return mass; }
+	void matrix_multiplicat(matr&, matr&);    // метод умножения
+	void matrix_summ(matr&, matr&);			  // метод сложения
+	void matrix_sub(matr&, matr&);			  // метод вычитания 
+
+	double** get_matr() { return mass; }     // методы доступа 
 	int get_n() { return size_N; }
 	int get_m() { return size_M; }
 
 
-	void set_size(int, int);
+	void set_size(int, int);			
 	void gen_matr();
 
 };

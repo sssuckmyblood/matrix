@@ -1,5 +1,5 @@
-#pragma once
-#include "matrix_class.h" // Подключаем класс матриц
+п»ї#pragma once
+#include "matrix_class.h" // РџРѕРґРєР»СЋС‡Р°РµРј РєР»Р°СЃСЃ РјР°С‚СЂРёС†
 namespace matrix {
 
 	using namespace System;
@@ -10,7 +10,7 @@ namespace matrix {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Сводка для Main
+	/// РЎРІРѕРґРєР° РґР»СЏ Main
 	/// </summary>
 	public ref class Main : public System::Windows::Forms::Form
 	{
@@ -19,13 +19,13 @@ namespace matrix {
 		{
 			InitializeComponent();
 			//
-			//TODO: добавьте код конструктора
+			//TODO: РґРѕР±Р°РІСЊС‚Рµ РєРѕРґ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Освободить все используемые ресурсы.
+		/// РћСЃРІРѕР±РѕРґРёС‚СЊ РІСЃРµ РёСЃРїРѕР»СЊР·СѓРµРјС‹Рµ СЂРµСЃСѓСЂСЃС‹.
 		/// </summary>
 		~Main()
 		{
@@ -96,6 +96,9 @@ namespace matrix {
 	private: System::Windows::Forms::DataGridView^ B_matr;
 	private: System::Windows::Forms::Button^ mul;
 	private: System::Windows::Forms::Label^ label12;
+	private: System::Windows::Forms::Button^ summ;
+	private: System::Windows::Forms::Button^ sub;
+	private: System::Windows::Forms::ComboBox^ sel_matr;
 
 
 
@@ -105,14 +108,14 @@ namespace matrix {
 
 	private:
 		/// <summary>
-		/// Обязательная переменная конструктора.
+		/// РћР±СЏР·Р°С‚РµР»СЊРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Требуемый метод для поддержки конструктора — не изменяйте 
-		/// содержимое этого метода с помощью редактора кода.
+		/// РўСЂРµР±СѓРµРјС‹Р№ РјРµС‚РѕРґ РґР»СЏ РїРѕРґРґРµСЂР¶РєРё РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° вЂ” РЅРµ РёР·РјРµРЅСЏР№С‚Рµ 
+		/// СЃРѕРґРµСЂР¶РёРјРѕРµ СЌС‚РѕРіРѕ РјРµС‚РѕРґР° СЃ РїРѕРјРѕС‰СЊСЋ СЂРµРґР°РєС‚РѕСЂР° РєРѕРґР°.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -123,6 +126,9 @@ namespace matrix {
 			this->color_worker = (gcnew System::ComponentModel::BackgroundWorker());
 			this->tab_view = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->sub = (gcnew System::Windows::Forms::Button());
+			this->summ = (gcnew System::Windows::Forms::Button());
+			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->mul = (gcnew System::Windows::Forms::Button());
 			this->groupBox8 = (gcnew System::Windows::Forms::GroupBox());
 			this->C_matr = (gcnew System::Windows::Forms::DataGridView());
@@ -166,9 +172,9 @@ namespace matrix {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->create = (gcnew System::Windows::Forms::Button());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->sel_matr = (gcnew System::Windows::Forms::ComboBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->mas_data = (gcnew System::Windows::Forms::DataGridView());
-			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->menuStrip1->SuspendLayout();
 			this->tab_view->SuspendLayout();
 			this->tabPage1->SuspendLayout();
@@ -213,7 +219,7 @@ namespace matrix {
 			// 
 			this->exit->Name = L"exit";
 			this->exit->Size = System::Drawing::Size(54, 20);
-			this->exit->Text = L"Выход";
+			this->exit->Text = L"Р’С‹С…РѕРґ";
 			this->exit->Click += gcnew System::EventHandler(this, &Main::exit_Click);
 			// 
 			// rand_mas
@@ -237,6 +243,8 @@ namespace matrix {
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->sub);
+			this->tabPage1->Controls->Add(this->summ);
 			this->tabPage1->Controls->Add(this->label12);
 			this->tabPage1->Controls->Add(this->mul);
 			this->tabPage1->Controls->Add(this->groupBox8);
@@ -247,14 +255,50 @@ namespace matrix {
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
 			this->tabPage1->Size = System::Drawing::Size(1673, 593);
 			this->tabPage1->TabIndex = 0;
-			this->tabPage1->Text = L"Калькулятор";
+			this->tabPage1->Text = L"РљР°Р»СЊРєСѓР»СЏС‚РѕСЂ";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// sub
+			// 
+			this->sub->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->sub->Location = System::Drawing::Point(543, 234);
+			this->sub->Name = L"sub";
+			this->sub->RightToLeft = System::Windows::Forms::RightToLeft::No;
+			this->sub->Size = System::Drawing::Size(28, 30);
+			this->sub->TabIndex = 6;
+			this->sub->Text = L"в€’";
+			this->sub->UseVisualStyleBackColor = true;
+			this->sub->Click += gcnew System::EventHandler(this, &Main::sub_Click);
+			// 
+			// summ
+			// 
+			this->summ->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->summ->Location = System::Drawing::Point(543, 188);
+			this->summ->Name = L"summ";
+			this->summ->Size = System::Drawing::Size(28, 30);
+			this->summ->TabIndex = 5;
+			this->summ->Text = L"+";
+			this->summ->UseVisualStyleBackColor = true;
+			this->summ->Click += gcnew System::EventHandler(this, &Main::summ_Click);
+			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label12->Location = System::Drawing::Point(1110, 188);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(28, 29);
+			this->label12->TabIndex = 4;
+			this->label12->Text = L"=";
 			// 
 			// mul
 			// 
 			this->mul->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->mul->Location = System::Drawing::Point(542, 188);
+			this->mul->Location = System::Drawing::Point(543, 148);
 			this->mul->Name = L"mul";
 			this->mul->Size = System::Drawing::Size(28, 23);
 			this->mul->TabIndex = 3;
@@ -270,12 +314,13 @@ namespace matrix {
 			this->groupBox8->Size = System::Drawing::Size(527, 433);
 			this->groupBox8->TabIndex = 2;
 			this->groupBox8->TabStop = false;
-			this->groupBox8->Text = L"Матрица C";
+			this->groupBox8->Text = L"РњР°С‚СЂРёС†Р° C";
 			// 
 			// C_matr
 			// 
 			this->C_matr->AllowUserToAddRows = false;
 			this->C_matr->AllowUserToDeleteRows = false;
+			this->C_matr->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::AllCells;
 			this->C_matr->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->C_matr->ColumnHeadersVisible = false;
 			this->C_matr->Location = System::Drawing::Point(7, 22);
@@ -297,7 +342,7 @@ namespace matrix {
 			this->groupBox7->Size = System::Drawing::Size(527, 433);
 			this->groupBox7->TabIndex = 1;
 			this->groupBox7->TabStop = false;
-			this->groupBox7->Text = L"Матрица B";
+			this->groupBox7->Text = L"РњР°С‚СЂРёС†Р° B";
 			// 
 			// gen_B
 			// 
@@ -305,7 +350,7 @@ namespace matrix {
 			this->gen_B->Name = L"gen_B";
 			this->gen_B->Size = System::Drawing::Size(126, 28);
 			this->gen_B->TabIndex = 4;
-			this->gen_B->Text = L"Сгенерировать";
+			this->gen_B->Text = L"РЎРіРµРЅРµСЂРёСЂРѕРІР°С‚СЊ";
 			this->gen_B->UseVisualStyleBackColor = true;
 			this->gen_B->Click += gcnew System::EventHandler(this, &Main::gen_B_Click);
 			// 
@@ -315,7 +360,7 @@ namespace matrix {
 			this->create_B->Name = L"create_B";
 			this->create_B->Size = System::Drawing::Size(126, 28);
 			this->create_B->TabIndex = 3;
-			this->create_B->Text = L"Создать";
+			this->create_B->Text = L"РЎРѕР·РґР°С‚СЊ";
 			this->create_B->UseVisualStyleBackColor = true;
 			this->create_B->Click += gcnew System::EventHandler(this, &Main::create_B_Click);
 			// 
@@ -341,14 +386,15 @@ namespace matrix {
 			// 
 			this->B_matr->AllowUserToAddRows = false;
 			this->B_matr->AllowUserToDeleteRows = false;
+			this->B_matr->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::AllCells;
 			this->B_matr->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->B_matr->ColumnHeadersVisible = false;
 			this->B_matr->Location = System::Drawing::Point(7, 22);
 			this->B_matr->Name = L"B_matr";
-			this->B_matr->ReadOnly = true;
 			this->B_matr->RowHeadersVisible = false;
 			this->B_matr->Size = System::Drawing::Size(513, 327);
 			this->B_matr->TabIndex = 0;
+			this->B_matr->CellEndEdit += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Main::B_matr_CellEndEdit);
 			// 
 			// groupBox6
 			// 
@@ -362,7 +408,7 @@ namespace matrix {
 			this->groupBox6->Size = System::Drawing::Size(527, 433);
 			this->groupBox6->TabIndex = 0;
 			this->groupBox6->TabStop = false;
-			this->groupBox6->Text = L"Матрица A";
+			this->groupBox6->Text = L"РњР°С‚СЂРёС†Р° A";
 			// 
 			// gen_A
 			// 
@@ -370,7 +416,7 @@ namespace matrix {
 			this->gen_A->Name = L"gen_A";
 			this->gen_A->Size = System::Drawing::Size(126, 28);
 			this->gen_A->TabIndex = 4;
-			this->gen_A->Text = L"Сгенерировать";
+			this->gen_A->Text = L"РЎРіРµРЅРµСЂРёСЂРѕРІР°С‚СЊ";
 			this->gen_A->UseVisualStyleBackColor = true;
 			this->gen_A->Click += gcnew System::EventHandler(this, &Main::gen_A_Click);
 			// 
@@ -380,7 +426,7 @@ namespace matrix {
 			this->create_A->Name = L"create_A";
 			this->create_A->Size = System::Drawing::Size(126, 28);
 			this->create_A->TabIndex = 3;
-			this->create_A->Text = L"Создать";
+			this->create_A->Text = L"РЎРѕР·РґР°С‚СЊ";
 			this->create_A->UseVisualStyleBackColor = true;
 			this->create_A->Click += gcnew System::EventHandler(this, &Main::create_A_Click);
 			// 
@@ -406,14 +452,15 @@ namespace matrix {
 			// 
 			this->A_matr->AllowUserToAddRows = false;
 			this->A_matr->AllowUserToDeleteRows = false;
+			this->A_matr->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::AllCells;
 			this->A_matr->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->A_matr->ColumnHeadersVisible = false;
 			this->A_matr->Location = System::Drawing::Point(7, 22);
 			this->A_matr->Name = L"A_matr";
-			this->A_matr->ReadOnly = true;
 			this->A_matr->RowHeadersVisible = false;
 			this->A_matr->Size = System::Drawing::Size(513, 327);
 			this->A_matr->TabIndex = 0;
+			this->A_matr->CellEndEdit += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Main::A_matr_CellEndEdit);
 			// 
 			// tabPage2
 			// 
@@ -427,7 +474,7 @@ namespace matrix {
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
 			this->tabPage2->Size = System::Drawing::Size(1673, 593);
 			this->tabPage2->TabIndex = 1;
-			this->tabPage2->Text = L"Анализ";
+			this->tabPage2->Text = L"РђРЅР°Р»РёР·";
 			this->tabPage2->UseVisualStyleBackColor = true;
 			// 
 			// groupBox3
@@ -442,7 +489,7 @@ namespace matrix {
 			this->groupBox3->Size = System::Drawing::Size(216, 208);
 			this->groupBox3->TabIndex = 19;
 			this->groupBox3->TabStop = false;
-			this->groupBox3->Text = L"Заполнить матрицу";
+			this->groupBox3->Text = L"Р—Р°РїРѕР»РЅРёС‚СЊ РјР°С‚СЂРёС†Сѓ";
 			// 
 			// label4
 			// 
@@ -453,7 +500,7 @@ namespace matrix {
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(35, 24);
 			this->label4->TabIndex = 8;
-			this->label4->Text = L"От";
+			this->label4->Text = L"РћС‚";
 			// 
 			// random_start
 			// 
@@ -475,7 +522,7 @@ namespace matrix {
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(35, 24);
 			this->label5->TabIndex = 10;
-			this->label5->Text = L"До";
+			this->label5->Text = L"Р”Рѕ";
 			// 
 			// random
 			// 
@@ -485,7 +532,7 @@ namespace matrix {
 			this->random->Name = L"random";
 			this->random->Size = System::Drawing::Size(176, 38);
 			this->random->TabIndex = 12;
-			this->random->Text = L"Рандом";
+			this->random->Text = L"Р Р°РЅРґРѕРј";
 			this->random->UseVisualStyleBackColor = true;
 			this->random->Click += gcnew System::EventHandler(this, &Main::random_Click);
 			// 
@@ -519,7 +566,7 @@ namespace matrix {
 			this->groupBox5->Size = System::Drawing::Size(216, 330);
 			this->groupBox5->TabIndex = 18;
 			this->groupBox5->TabStop = false;
-			this->groupBox5->Text = L"Сортировка";
+			this->groupBox5->Text = L"РЎРѕСЂС‚РёСЂРѕРІРєР°";
 			// 
 			// label11
 			// 
@@ -530,7 +577,7 @@ namespace matrix {
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(122, 20);
 			this->label11->TabIndex = 18;
-			this->label11->Text = L"От 1 элемента";
+			this->label11->Text = L"РћС‚ 1 СЌР»РµРјРµРЅС‚Р°";
 			// 
 			// label10
 			// 
@@ -541,7 +588,7 @@ namespace matrix {
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(122, 20);
 			this->label10->TabIndex = 17;
-			this->label10->Text = L"До 2 элемента";
+			this->label10->Text = L"Р”Рѕ 2 СЌР»РµРјРµРЅС‚Р°";
 			// 
 			// label9
 			// 
@@ -552,7 +599,7 @@ namespace matrix {
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(87, 24);
 			this->label9->TabIndex = 16;
-			this->label9->Text = L"Столбец";
+			this->label9->Text = L"РЎС‚РѕР»Р±РµС†";
 			// 
 			// label8
 			// 
@@ -563,7 +610,7 @@ namespace matrix {
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(74, 24);
 			this->label8->TabIndex = 15;
-			this->label8->Text = L"Строка";
+			this->label8->Text = L"РЎС‚СЂРѕРєР°";
 			// 
 			// sort2_j
 			// 
@@ -596,7 +643,7 @@ namespace matrix {
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(74, 24);
 			this->label6->TabIndex = 8;
-			this->label6->Text = L"Строка";
+			this->label6->Text = L"РЎС‚СЂРѕРєР°";
 			// 
 			// sort1_i
 			// 
@@ -618,7 +665,7 @@ namespace matrix {
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(87, 24);
 			this->label7->TabIndex = 10;
-			this->label7->Text = L"Столбец";
+			this->label7->Text = L"РЎС‚РѕР»Р±РµС†";
 			// 
 			// sort
 			// 
@@ -628,7 +675,7 @@ namespace matrix {
 			this->sort->Name = L"sort";
 			this->sort->Size = System::Drawing::Size(202, 38);
 			this->sort->TabIndex = 12;
-			this->sort->Text = L"Отсортировать";
+			this->sort->Text = L"РћС‚СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ";
 			this->sort->UseVisualStyleBackColor = true;
 			this->sort->Click += gcnew System::EventHandler(this, &Main::sort_Click);
 			// 
@@ -653,7 +700,7 @@ namespace matrix {
 			this->groupBox4->Size = System::Drawing::Size(156, 70);
 			this->groupBox4->TabIndex = 17;
 			this->groupBox4->TabStop = false;
-			this->groupBox4->Text = L"Седловая точка";
+			this->groupBox4->Text = L"РЎРµРґР»РѕРІР°СЏ С‚РѕС‡РєР°";
 			// 
 			// saddle
 			// 
@@ -663,7 +710,7 @@ namespace matrix {
 			this->saddle->Name = L"saddle";
 			this->saddle->Size = System::Drawing::Size(133, 36);
 			this->saddle->TabIndex = 0;
-			this->saddle->Text = L"Вычислить";
+			this->saddle->Text = L"Р’С‹С‡РёСЃР»РёС‚СЊ";
 			this->saddle->UseVisualStyleBackColor = true;
 			this->saddle->Click += gcnew System::EventHandler(this, &Main::saddle_Click);
 			// 
@@ -680,7 +727,7 @@ namespace matrix {
 			this->groupBox2->Size = System::Drawing::Size(216, 167);
 			this->groupBox2->TabIndex = 15;
 			this->groupBox2->TabStop = false;
-			this->groupBox2->Text = L"Создать матрицу";
+			this->groupBox2->Text = L"РЎРѕР·РґР°С‚СЊ РјР°С‚СЂРёС†Сѓ";
 			// 
 			// label2
 			// 
@@ -691,7 +738,7 @@ namespace matrix {
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(75, 24);
 			this->label2->TabIndex = 5;
-			this->label2->Text = L"Строки";
+			this->label2->Text = L"РЎС‚СЂРѕРєРё";
 			// 
 			// numeric_N
 			// 
@@ -724,7 +771,7 @@ namespace matrix {
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(89, 24);
 			this->label3->TabIndex = 6;
-			this->label3->Text = L"Столбцы";
+			this->label3->Text = L"РЎС‚РѕР»Р±С†С‹";
 			// 
 			// create
 			// 
@@ -735,12 +782,13 @@ namespace matrix {
 			this->create->Name = L"create";
 			this->create->Size = System::Drawing::Size(182, 37);
 			this->create->TabIndex = 7;
-			this->create->Text = L"Создать";
+			this->create->Text = L"РЎРѕР·РґР°С‚СЊ";
 			this->create->UseVisualStyleBackColor = true;
 			this->create->Click += gcnew System::EventHandler(this, &Main::create_Click);
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->Controls->Add(this->sel_matr);
 			this->groupBox1->Controls->Add(this->label1);
 			this->groupBox1->Controls->Add(this->mas_data);
 			this->groupBox1->ForeColor = System::Drawing::SystemColors::ControlText;
@@ -749,7 +797,18 @@ namespace matrix {
 			this->groupBox1->Size = System::Drawing::Size(374, 400);
 			this->groupBox1->TabIndex = 14;
 			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Матрица";
+			this->groupBox1->Text = L"РњР°С‚СЂРёС†Р°";
+			// 
+			// sel_matr
+			// 
+			this->sel_matr->FormattingEnabled = true;
+			this->sel_matr->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"A", L"B", L"C" });
+			this->sel_matr->Location = System::Drawing::Point(235, 21);
+			this->sel_matr->Name = L"sel_matr";
+			this->sel_matr->Size = System::Drawing::Size(56, 23);
+			this->sel_matr->TabIndex = 3;
+			this->sel_matr->Text = L"A";
+			this->sel_matr->SelectedIndexChanged += gcnew System::EventHandler(this, &Main::sel_matr_SelectedIndexChanged);
 			// 
 			// label1
 			// 
@@ -760,7 +819,7 @@ namespace matrix {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(102, 24);
 			this->label1->TabIndex = 1;
-			this->label1->Text = L"Матрица:";
+			this->label1->Text = L"РњР°С‚СЂРёС†Р°:";
 			// 
 			// mas_data
 			// 
@@ -772,22 +831,11 @@ namespace matrix {
 			this->mas_data->Size = System::Drawing::Size(360, 316);
 			this->mas_data->TabIndex = 2;
 			// 
-			// label12
-			// 
-			this->label12->AutoSize = true;
-			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label12->Location = System::Drawing::Point(1110, 188);
-			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(28, 29);
-			this->label12->TabIndex = 4;
-			this->label12->Text = L"=";
-			// 
 			// Main
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1681, 654);
+			this->ClientSize = System::Drawing::Size(1681, 516);
 			this->Controls->Add(this->tab_view);
 			this->Controls->Add(this->menuStrip1);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.25F));
@@ -797,7 +845,7 @@ namespace matrix {
 			this->MinimumSize = System::Drawing::Size(896, 536);
 			this->Name = L"Main";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Матрицы";
+			this->Text = L"РњР°С‚СЂРёС†С‹";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &Main::OnFormClosing);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
@@ -838,6 +886,11 @@ namespace matrix {
 
 		}
 #pragma endregion
+//////////////////////////////////////////////////////////////////////////////////
+//																				//																 										//				 					
+//				РћРїРёСЃР°РЅРёСЏ РјРµС‚РѕРґРѕРІ РёРЅС‚РµСЂС„РµР№СЃР° WinForms							//
+// 																				//
+//////////////////////////////////////////////////////////////////////////////////
 
 private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e);
 
@@ -869,5 +922,10 @@ private: System::Void gen_A_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void gen_B_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void matr_data_Show(matr& data, System::Windows::Forms::DataGridView^ table);
 private: System::Void mul_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void A_matr_CellEndEdit(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
+private: System::Void B_matr_CellEndEdit(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
+private: System::Void summ_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void sub_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void sel_matr_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
 };
 }

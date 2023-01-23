@@ -1,6 +1,6 @@
 #include "matrix_class.h"
 
-
+	
 matr::matr() {
 	
 	mass = new double* [size_N];
@@ -17,9 +17,9 @@ matr::matr() {
 
 matr::matr(int n, int m) {
 	if (size_N != 0 && size_M != 0 ) {
-	for (int i = 0; i < size_N; i++) //   для каждой строки
+	for (int i = 0; i < size_N; i++) 
 	{
-		delete[] mass[i]; //  , удаление памяти выделенно
+		delete[] mass[i]; 
 
 	}
 	delete[] mass;
@@ -36,15 +36,14 @@ matr::matr(int n, int m) {
 		}
 	}
 }
-void matr::set_size(int n, int m) {
-	if (size_N != 0 && size_M != 0) {
-		for (int i = 0; i < size_N; i++) //   для каждой строки
-		{
-			delete[] mass[i]; //  , удаление памяти выделенно
 
-		}
-		delete[] mass;
-	}
+	//////////////////////////////////////////////////////////////////////////////////
+	//																				//																 										//				 					
+	//						Реализация метода инициализации матрицы 				//
+	// 																				//
+	//////////////////////////////////////////////////////////////////////////////////
+void matr::set_size(int n, int m) {
+	
 	size_N = n;
 	size_M = m;
 	mass = new double* [size_N];
@@ -61,9 +60,9 @@ void matr::set_size(int n, int m) {
 matr::matr(const matr& B) {
 	size_N = B.size_N;
 	size_M = B.size_M;
-	for (int i = 0; i < size_N; i++) //   для каждой строки
+	for (int i = 0; i < size_N; i++) 
 	{
-		delete[] mass[i]; //  , удаление памяти выделенно
+		delete[] mass[i]; 
 
 	}
 	delete[] mass;
@@ -78,18 +77,55 @@ matr::matr(const matr& B) {
 	}
 }
 
-matr matr::matrix_multiplicat(matr& A, matr& B) {
-	matr result = matr(A.size_N, B.size_M);
+	//////////////////////////////////////////////////////////////////////////////////
+	//																				//																 										//				 					
+	//						Реализация метода умножения матриц						//
+	// 																				//
+	//////////////////////////////////////////////////////////////////////////////////
+
+void matr::matrix_multiplicat(matr& A, matr& B) {
+	this->set_size(A.size_N, B.size_M);
 	for (int i = 0; i < A.size_N; i++) {
 		for (int j = 0; j < B.size_M; j++) {
 			for (int k = 0; k < A.size_M; k++)
 				// C = A*B;
-				result.mass[i][j] += A.mass[i][k] * B.mass[k][j];
+				this->mass[i][j] += A.mass[i][k] * B.mass[k][j];
 		}
 	}
-	return result;
+	
 }
 
+	//////////////////////////////////////////////////////////////////////////////////
+	//																				//																 										//				 					
+	//						Реализация метода вычитаний матриц						//
+	// 																				//
+	//////////////////////////////////////////////////////////////////////////////////
+
+void matr::matrix_sub(matr& A, matr& B) {
+	this->set_size(A.size_N, B.size_M);
+	for (int i = 0; i < A.size_N; i++) {
+		for (int j = 0; j < B.size_M; j++) {
+				// C = A-B;
+				this->mass[i][j] = A.mass[i][j] - B.mass[i][j];
+		}
+	}
+}
+
+	//////////////////////////////////////////////////////////////////////////////////
+	//																				//																 										//				 					
+	//						Реализация метода сложения матриц						//
+	// 																				//
+	//////////////////////////////////////////////////////////////////////////////////
+
+void matr::matrix_summ(matr& A, matr& B) {
+	this->set_size(A.size_N, B.size_M);
+	for (int i = 0; i < A.size_N; i++) {
+		for (int j = 0; j < B.size_M; j++) {
+			// C = A+B;
+			this->mass[i][j] = A.mass[i][j] + B.mass[i][j];
+		}
+	}
+}
 
 void matr::gen_matr() {
 	srand(time(NULL));
@@ -102,10 +138,10 @@ void matr::gen_matr() {
 }
 
 matr::~matr() {
-	for (int i = 0; i < size_N; i++) //   для каждой строки
+	for (int i = 0; i < size_N; i++) 
 	{
-		delete[] mass[i]; //  , удаление памяти выделенно
+		delete[] mass[i]; 
 		
 	}
-	delete[] mass; //  , удаление памяти выделенной
+	delete[] mass; 
 }

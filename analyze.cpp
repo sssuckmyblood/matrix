@@ -1,12 +1,12 @@
 #include "analyze.h"
 
 
-
-int** init_mas(int* mas[], int n, int m) {
-	mas = new int* [n];
+// инициализируем матрицу
+double** init_mas(double* mas[], int n, int m) {
+	mas = new double* [n];
 
 	for (int i = 0; i < n; i++)
-		mas[i] = new int[m];
+		mas[i] = new double[m];
 
 
 	for (int i = 0; i < n; i++) {
@@ -20,8 +20,8 @@ int** init_mas(int* mas[], int n, int m) {
 
 }
 
-
-void random_mas(int* mas[], int n, int m, int start, int end) {
+// генерируем рандомные значения
+void random_mas(double* mas[], int n, int m, int start, int end) {
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
 			//mas[i][j] = 1 + rand() % 100;
@@ -31,24 +31,25 @@ void random_mas(int* mas[], int n, int m, int start, int end) {
 	
 }
 
-void del_mas(int* mas[], int n)
+void del_mas(double* mas[], int n)
 {
-	for (int i = 0; i < n; i++) //   для каждой строки
+	for (int i = 0; i < n; i++) 
 	{
-		delete[] mas[i]; //  , удаление памяти выделенно
-		//  на строку
-		mas[i] = 0;
+		delete[] mas[i]; 
+		
+		
 	}
-	delete[] mas; //  , удаление памяти выделенной
+	delete[] mas;
 
 }
 
-void saddle_find(int* mas[], int n, int m, int &saddle_i, int &saddle_j) {
+// функция поиска седловой точки
+void saddle_find(double* mas[], int n, int m, int &saddle_i, int &saddle_j) {
 	
-	int min = INT_MAX;
-	int max = INT_MIN;
-	int min_result = 0;
-	int max_result = 0;
+	double min = DBL_MAX;
+	double max = DBL_MIN;
+	double min_result = 0;
+	double max_result = 0;
 	int i;
 	int j;
 	int min_j = 0;
@@ -65,7 +66,7 @@ void saddle_find(int* mas[], int n, int m, int &saddle_i, int &saddle_j) {
 		}
 		min_result = min;
 		min_i = i;
-		min = INT_MAX;
+		min = DBL_MAX;
 
 		for (int k = 0; k < n; k++)
 			if (mas[k][min_j] > max) {
@@ -73,7 +74,7 @@ void saddle_find(int* mas[], int n, int m, int &saddle_i, int &saddle_j) {
 				max_i = k;
 			}
 		max_result = max;
-		max = INT_MIN;
+		max = DBL_MIN;
 		
 		if (min_result == max_result && min_i == max_i) {
 			saddle_i = max_i;
@@ -86,7 +87,8 @@ void saddle_find(int* mas[], int n, int m, int &saddle_i, int &saddle_j) {
 
 }
 
-int sort_mas(int* mas[], int n, int m, int i_1, int j_1, int i_2,int j_2, int len) {
+// функция сортировки интервала внутри матрицы алгоритмом qsort
+int sort_mas(double* mas[], int n, int m, int i_1, int j_1, int i_2,int j_2, int len) {
 
 	int sort1_i = i_1;
 	int sort1_j = j_1;
@@ -112,7 +114,7 @@ int sort_mas(int* mas[], int n, int m, int i_1, int j_1, int i_2,int j_2, int le
 		x = 0;
 
 	}
-	int* mas_onerang = new int[len];
+	double* mas_onerang = new double[len];
 	 x = sort1_j;
 	 int count = 0;
 	 break_remas = 0;
@@ -133,7 +135,7 @@ int sort_mas(int* mas[], int n, int m, int i_1, int j_1, int i_2,int j_2, int le
 
 	}
 	
-	qsort(mas_onerang, len, sizeof(int), cmp);
+	qsort(mas_onerang, len, sizeof(double), cmp);
 
 	int y = sort1_j;
 	int break_rewrite = 0;
@@ -158,10 +160,11 @@ int sort_mas(int* mas[], int n, int m, int i_1, int j_1, int i_2,int j_2, int le
 
 }
 
+// вспомогательная функция для qsort
 int cmp(const void* arg1, const void* arg2) {
-	int a = *(int*)arg1;
+	double a = *(double*)arg1;
 
-	int	b = *(int*)arg2;
+	double	b = *(double*)arg2;
 
 	if (a > b) return -1;
 

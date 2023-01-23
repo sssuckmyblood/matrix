@@ -1,18 +1,23 @@
+//////////////////////////////////////////////////////////////////////////////////
+//																				//																 										//				 					
+//				Описания функций для анализа									//
+// 																				//
+//////////////////////////////////////////////////////////////////////////////////
 
 #include<iostream>
 #include <cstdlib> 
 #include <ctime>
 using namespace std;
 
-int** init_mas(int* [], int, int);
+double** init_mas(double* [], int, int);
 
-void random_mas(int* mas[], int n, int m, int start, int end);
+void random_mas(double* mas[], int n, int m, int start, int end);
 
-void del_mas(int* [], int);
+void del_mas(double* [], int);
 
-void saddle_find(int* [], int, int, int&, int&);
+void saddle_find(double* [], int, int, int&, int&);
 
-int sort_mas(int* [], int, int, int, int, int, int, int);
+int sort_mas(double* [], int, int, int, int, int, int, int);
 
 int cmp(const void*, const void*);
 
